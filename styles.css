@@ -145,7 +145,7 @@ button { color: inherit; }
 .section-index { color: #707279; }
 .intro {
   background-color: #f4e7d1;
-  background-image: url('assets/chill-plans-background.png');
+  background-image: url('/assets/chill-plans-background.png');
   background-size: cover;
   background-position: center;
 }
