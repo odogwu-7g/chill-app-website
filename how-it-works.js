@@ -229,7 +229,7 @@
       if(desktop.matches) {
         const cleanBackground = new Image();
         cleanBackground.crossOrigin = 'anonymous';
-        cleanBackground.src = 'https://chill-app-sa.lusandaphiwe1.chatgpt.site/assets/chill-motion-background.png';
+        cleanBackground.src = '/original-assets/chill-motion-background.png';
         await Promise.all([source.decode(), cleanBackground.decode()]);
         if(current!==generation) return;
         setupDesktop(cleanBackground);
