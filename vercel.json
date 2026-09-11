@@ -1,4 +1,10 @@
 {
   "buildCommand": "npm run build",
-  "outputDirectory": "dist"
+  "outputDirectory": "dist",
+  "rewrites": [
+    {
+      "source": "/original-assets/:path*",
+      "destination": "https://chill-app-sa.lusandaphiwe1.chatgpt.site/assets/:path*"
+    }
+  ]
 }
