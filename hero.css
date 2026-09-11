@@ -76,3 +76,7 @@
 @media (prefers-reduced-motion: reduce) {
   .hero-image-plane, .hero-light-plane, .hero-credit-card, .hero-scan-card, .hero-immersive .hero-copy { transform: none !important; }
 }
+
+/* Vercel fallback: retains the verified hero artwork while the source image is refreshed. */
+.hero-image-plane { background: url('https://chill-app-sa.lusandaphiwe1.chatgpt.site/assets/chill-hero.png') 52% 50% / cover no-repeat; }
+.hero-image-plane img { opacity: 0; }
