@@ -1,0 +1,103 @@
+/* Source artwork stays unmodified; motion returns to the exact static image. */
+.how-template {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  scroll-margin-top: 90px;
+  background: #f4e6d0;
+  color: #090909;
+}
+.how-template-desktop {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1672 / 941;
+}
+.how-motion-canvas { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; display: none; }
+@media (min-width: 1051px) {
+  .how-motion-ready .how-motion-canvas { display: block; }
+  .how-motion-ready .how-template-desktop { visibility: hidden; }
+}
+.how-template-art { isolation: isolate; }
+.how-illustration-effect { display: none; pointer-events: none; position: absolute; z-index: 2; }
+.how-template-account .how-illustration-effect,
+.how-template-pay .how-illustration-effect { left: 12%; width: 76%; height: 3px; background: linear-gradient(90deg, transparent, #fff6cf 35%, white 50%, #ffd26a 65%, transparent); box-shadow: 0 0 18px 5px #ffbf6377; }
+.how-template-credit .how-illustration-effect { inset: 25% 5% 5%; border-radius: 50%; background: radial-gradient(ellipse, #fff1b966, #74fbff33 40%, transparent 70%); mix-blend-mode: screen; }
+@media (max-width: 1050px) {
+  .how-motion-canvas { display: none !important; }
+  .how-illustration-effect { display: block; opacity: 0; }
+  .how-template-heading .how-type-word { white-space: nowrap; }
+  .how-template-heading .how-type-letter { color: inherit; }
+  .how-template-heading.how-type-pending .how-type-letter { visibility: hidden; }
+  .how-template-heading.how-type-pending .how-type-letter.is-typed { visibility: visible; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .how-motion-canvas { display: none !important; }
+  .how-template-desktop { visibility: visible !important; }
+  .how-illustration-effect { display: none !important; }
+  .how-type-letter { visibility: visible !important; }
+}
+.how-template-content {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+.how-template-note {
+  margin: 0;
+  padding: 12px 7.3%;
+  background: #f4e6d0;
+  color: #554c42;
+  font-size: 12px;
+  line-height: 1.6;
+}
+@media (max-width: 1050px) {
+  .how-template-desktop { display: none; }
+  .how-template-content {
+    position: relative;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    clip-path: none;
+    max-width: 650px;
+    margin: auto;
+    padding: 48px 24px 20px;
+  }
+  .how-template-index {
+    display: block;
+    font-size: 13px;
+    letter-spacing: .2em;
+    margin-bottom: 20px;
+  }
+  .how-template-heading h2 {
+    margin: 0;
+    font-size: clamp(32px, 6.7vw, 52px);
+    font-weight: 800;
+    letter-spacing: -.055em;
+    line-height: 1.03;
+  }
+  .how-template-heading h2 em { color: #ff7054; font-style: normal; }
+  .how-template-heading p { margin: 22px 0 28px; max-width: 34ch; font-size: 17px; line-height: 1.5; color: #413c36; }
+  .how-template-cards { display: grid; gap: 22px; margin: 0; padding: 0; list-style: none; }
+  .how-template-card { border-radius: 26px; overflow: hidden; }
+  .how-template-account { --crop-width: 490; --crop-x: 86; background: #10100e; color: #fff; }
+  .how-template-credit { --crop-width: 483; --crop-x: 595; background: #64e6ee; color: #020d10; }
+  .how-template-pay { --crop-width: 493; --crop-x: 1095; background: #f2e4ce; border: 1px solid #fff5e5; color: #090909; }
+  .how-template-art { position: relative; aspect-ratio: var(--crop-width) / 405; overflow: hidden; }
+  .how-template-art img {
+    position: absolute;
+    width: calc(1672 / var(--crop-width) * 100%);
+    max-width: none;
+    height: auto;
+    left: calc(var(--crop-x) / var(--crop-width) * -100%);
+    top: calc(238 / 405 * -100%);
+  }
+  .how-template-copy { padding: 18px 24px 28px; }
+  .how-template-copy h3 { font-size: clamp(22px, 4.7vw, 30px); letter-spacing: -.045em; font-weight: 780; line-height: 1.15; margin: 0 0 14px; }
+  .how-template-copy p { font-size: 16px; line-height: 1.5; margin: 0; }
+  .how-template-account .how-template-copy p { color: #d0ccc6; }
+  .how-template-caption { font-size: 13px; letter-spacing: .08em; text-align: center; margin: 28px 0 8px; }
+  .how-template-note { padding: 10px 24px 24px; }
+}

@@ -1,0 +1,78 @@
+/* A photographic back plane, light plane and independent glass foreground. */
+.hero-immersive {
+  --hero-gold: #f0c779;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  min-height: max(850px, 100svh);
+  padding: 155px 6vw 130px;
+  background: #090a09;
+}
+.hero-immersive::before { display: none; }
+.hero-scene { position: absolute; z-index: -1; inset: 0; overflow: hidden; perspective: 1400px; pointer-events: none; }
+.hero-image-plane { position: absolute; inset: -5% -12% -5% 17%; transform: scale(1.05); transform-origin: 60% 50%; }
+.hero-image-plane img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 52% 50%; }
+.hero-light-plane { position: absolute; inset: -20%; opacity: .65; background: radial-gradient(ellipse at 75% 20%, #f3b85924, transparent 38%), radial-gradient(ellipse at 52% 90%, #d8983220, transparent 35%); mix-blend-mode: screen; }
+.hero-shade { position: absolute; inset: 0; background: linear-gradient(90deg, #090a09 0%, #090a09f5 17%, #090a09d4 31%, #090a0970 43%, transparent 59%), linear-gradient(0deg, #090a09 0%, transparent 25%, transparent 80%, #090a0960 100%); }
+.hero-immersive .hero-copy { width: 44%; max-width: 660px; }
+.hero-immersive .eyebrow { color: #e6d5b7; font-size: .75rem; line-height: 1.7; letter-spacing: .12em; }
+.hero-immersive .eyebrow span { background: var(--hero-gold); box-shadow: 0 0 0 5px #f0c77914; flex-shrink: 0; }
+.hero-immersive h1 { font-size: clamp(3.5rem, 5.8vw, 6.1rem); line-height: 1.02; letter-spacing: -.055em; text-wrap: balance; }
+.hero-immersive h1 em { color: var(--hero-gold); }
+.hero-immersive .hero-lead { max-width: 440px; font-size: 1rem; line-height: 1.7; color: #d1cdc5; margin-top: 28px; }
+.hero-immersive .hero-actions { flex-wrap: wrap; gap: 22px; margin-top: 28px; }
+.hero-immersive .button-primary { background: var(--hero-gold); box-shadow: 0 8px 36px #d89b3824; }
+.hero-immersive .button-primary:hover { background: #ffdaa0; box-shadow: 0 12px 40px #d89b3840; }
+.hero-immersive .text-link span { color: var(--hero-gold); }
+.hero-immersive .microcopy { max-width: 380px; color: #aaa69e; font-size: .75rem; line-height: 1.6; }
+.hero-depth-cards { position: absolute; top: 0; right: 4%; bottom: 0; width: 26%; pointer-events: none; perspective: 1000px; }
+.hero-credit-card, .hero-scan-card { position: absolute; border: 1px solid #f5d5984d; color: #fff7e9; background: linear-gradient(125deg, #29251dd9, #11130ec2); backdrop-filter: blur(16px); box-shadow: 0 25px 65px #0008, inset 0 1px #fff2; border-radius: 20px; }
+.hero-credit-card { top: 20%; right: 0; padding: 20px 24px; transform: rotate(5deg); }
+.hero-card-label { display: block; font-size: .75rem; letter-spacing: .12em; color: #ded0b5; }
+.hero-credit-card strong { display: block; margin: 10px 0 8px; font-size: 2.1rem; letter-spacing: -.04em; color: var(--hero-gold); }
+.hero-credit-card strong small { font-size: .875rem; font-weight: 500; letter-spacing: 0; }
+.hero-card-note { font-size: .75rem; color: #bfb7a9; }
+.hero-scan-card { right: 0; bottom: 20%; padding: 18px 20px; display: flex; align-items: center; gap: 16px; text-align: left; cursor: pointer; pointer-events: auto; transform: rotate(-4deg); }
+.hero-scan-card strong { display: block; font-size: .875rem; font-weight: 650; white-space: nowrap; }
+.hero-scan-card small { display: block; font-size: .75rem; color: #d2c7b5; margin-top: 5px; }
+.hero-scan-card > span:last-child { color: var(--hero-gold); font-size: 1.4rem; }
+.hero-scan-card .scan-icon { flex-shrink: 0; width: 28px; height: 28px; }
+.hero-scan-card .scan-icon i { border-color: var(--hero-gold); }
+.hero-scan-card:hover { border-color: var(--hero-gold); background: #2e281ee8; }
+.hero-immersive .hero-foot { left: 6vw; right: 6vw; bottom: 30px; color: #b5ac9c; font-size: .75rem; line-height: 1.6; }
+.hero-scroll-cue { display: inline-flex; gap: 20px; align-items: center; }
+.hero-scroll-cue span { display: grid; place-items: center; width: 34px; height: 34px; border: 1px solid #f0c77950; border-radius: 50%; color: var(--hero-gold); font-size: 1rem; }
+.hero-scan-dialog { position: fixed; inset: 0; width: min(390px, calc(100vw - 32px)); height: fit-content; max-height: calc(100svh - 32px); margin: auto; padding: 65px 24px 28px; border: 1px solid #f0c77950; border-radius: 28px; transform: none; }
+.hero-scan-dialog::backdrop { background: #000b; backdrop-filter: blur(8px); }
+.hero-scan-dialog .scan-close { top: 12px; right: 14px; width: 44px; height: 44px; }
+.hero-scan-dialog > small { font-size: .75rem; color: #f0c779; }
+.hero-scan-dialog > strong { font-size: 1.25rem; }
+.hero-scan-dialog p { font-size: .875rem; color: #bbb; line-height: 1.5; }
+@media (min-width: 781px) and (max-width: 1100px) {
+  .hero-immersive { padding-inline: 5vw; }
+  .hero-immersive .hero-copy { width: 49%; }
+  .hero-immersive h1 { font-size: clamp(3rem, 6vw, 4rem); }
+  .hero-credit-card { padding: 16px; }
+  .hero-scan-card { padding: 16px; gap: 10px; }
+}
+@media (max-width: 780px) {
+  .hero-immersive { display: flex; flex-direction: column; align-items: stretch; min-height: auto; padding: 132px 24px 26px; gap: 0; }
+  .hero-immersive .hero-copy { width: 100%; max-width: 580px; }
+  .hero-immersive h1 { max-width: 570px; font-size: clamp(2.75rem, 10.6vw, 4.5rem); }
+  .hero-immersive .eyebrow { margin-bottom: 22px; font-size: .75rem; }
+  .hero-immersive .hero-lead { max-width: 490px; margin-top: 24px; }
+  .hero-immersive .hero-actions { flex-direction: row; align-items: center; gap: 22px; }
+  .hero-image-plane { inset: auto -22% 35px; height: 630px; transform-origin: 50% 75%; }
+  .hero-image-plane img { object-position: 53% 50%; }
+  .hero-shade { background: linear-gradient(0deg, #090a09 0%, transparent 12%, transparent 30%, #090a09 53%, #090a09 100%); }
+  .hero-light-plane { display: none; }
+  .hero-depth-cards { position: relative; right: auto; width: 100%; height: 500px; margin-top: 10px; flex-shrink: 0; }
+  .hero-credit-card { top: 58px; right: -3px; padding: 14px 18px; }
+  .hero-credit-card strong { font-size: 1.75rem; }
+  .hero-scan-card { bottom: 25px; right: 0; }
+  .hero-immersive .hero-foot { position: relative; left: auto; right: auto; bottom: auto; margin-top: 8px; gap: 12px; font-size: .75rem; letter-spacing: .06em; }
+  .hero-immersive .hero-foot div { min-width: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-image-plane, .hero-light-plane, .hero-credit-card, .hero-scan-card, .hero-immersive .hero-copy { transform: none !important; }
+}

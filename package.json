@@ -1,0 +1,10 @@
+{
+  "name": "chill-app-site",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node preview.mjs",
+    "build": "node build.mjs"
+  }
+}
